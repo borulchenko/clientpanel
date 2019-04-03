@@ -47,7 +47,6 @@ class Clients extends Component {
                 </span>
               </h5>
             </div>
-            >
           </div>
           <table className="table table-striped">
             <thead className="thead-inverse">

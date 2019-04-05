@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import Spinner from "../layout/Spinner";
 import classnames from "classnames";
-import { format } from "util";
 
 class ClientDetails extends Component {
   state = {
@@ -22,11 +21,11 @@ class ClientDetails extends Component {
     const { client, firestore } = this.props;
     const { balanceUpdateAmount } = this.state;
 
-    const clientUpdate = {
+    const updatedClient = {
       balance: parseFloat(balanceUpdateAmount)
     };
 
-    firestore.update({ collection: "clients", doc: client.id }, clientUpdate);
+    firestore.update({ collection: "clients", doc: client.id }, updatedClient);
   };
 
   deleteClick = e => {

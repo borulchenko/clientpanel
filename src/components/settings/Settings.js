@@ -9,15 +9,6 @@ import {
 } from "../../actions/settingsActions";
 
 class Settings extends Component {
-  static propTypes = {
-    prop: PropTypes
-  };
-
-  allowRegistration = () => {
-    const { setAllowRegistration } = this.props;
-    setAllowRegistration();
-  };
-
   disableBalanceOnAdd = () => {
     const { setDisableBalanceOnAdd } = this.props;
     setDisableBalanceOnAdd();
@@ -26,6 +17,11 @@ class Settings extends Component {
   disableBalanceOnEdit = () => {
     const { setDisableBalanceOnEdit } = this.props;
     setDisableBalanceOnEdit();
+  };
+
+  allowRegistration = () => {
+    const { setAllowRegistration } = this.props;
+    setAllowRegistration();
   };
 
   render() {

@@ -13,15 +13,9 @@ class AppNavbar extends Component {
   static getDerivedStateFromProps(props, state) {
     const { auth } = props;
 
-    if (auth.uid) {
-      return { isAuthenticated: true };
-    } else {
-      return { isAuthenticated: false };
-    }
-
-    // return {
-    //   isAuthenticated: !!auth.uid
-    // };
+    return {
+      isAuthenticated: !!auth.uid
+    };
   }
 
   onLogout = e => {

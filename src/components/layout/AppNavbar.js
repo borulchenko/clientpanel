@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { firebaseConnect } from "react-redux-firebase";
+import { notifyUser } from "../../actions/notifyActions";
 
 class AppNavbar extends Component {
   state = {
@@ -21,7 +22,7 @@ class AppNavbar extends Component {
   onLogout = e => {
     e.preventDefault();
 
-    const { firebase, notify } = this.props;
+    const { firebase, notifyUser } = this.props;
 
     this.setState({
       notify: {
@@ -31,6 +32,7 @@ class AppNavbar extends Component {
     });
 
     firebase.logout();
+    notifyUser(null, null);
   };
 
   render() {
@@ -89,7 +91,11 @@ AppNavbar.propTypes = {
 
 export default compose(
   firebaseConnect(),
-  connect((state, props) => ({
-    auth: state.firebase.auth
-  }))
+  connect(
+    state => ({
+      auth: state.firebase.auth,
+      notify: state.notify
+    }),
+    { notifyUser }
+  )
 )(AppNavbar);

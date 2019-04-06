@@ -21,7 +21,14 @@ class AppNavbar extends Component {
   onLogout = e => {
     e.preventDefault();
 
-    const { firebase } = this.props;
+    const { firebase, notify } = this.props;
+
+    this.setState({
+      notify: {
+        message: null,
+        messageType: null
+      }
+    });
 
     firebase.logout();
   };

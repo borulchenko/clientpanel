@@ -72,6 +72,11 @@ class AppNavbar extends Component {
                   </a>
                 </li>
                 <li className="nav-item">
+                  <Link to="/settings" className="nav-link">
+                    Settings
+                  </Link>
+                </li>
+                <li className="nav-item">
                   <a href="#!" className="nav-link" onClick={this.onLogout}>
                     Logout
                   </a>
@@ -86,7 +91,9 @@ class AppNavbar extends Component {
 }
 
 AppNavbar.propTypes = {
-  auth: PropTypes.object.isRequired
+  firebase: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  settings: PropTypes.object.isRequired
 };
 
 export default compose(
@@ -94,7 +101,8 @@ export default compose(
   connect(
     state => ({
       auth: state.firebase.auth,
-      notify: state.notify
+      notify: state.notify,
+      settings: state.settings
     }),
     { notifyUser }
   )

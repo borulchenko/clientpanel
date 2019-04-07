@@ -32,7 +32,7 @@ const rootReducer = combineReducers({
 });
 
 // Check for settings in localStorage
-if (localStorage.getItem("settings" == null)) {
+if (localStorage.getItem("settings") == null) {
   const defaultSettings = {
     disableBalanceOnAdd: true,
     disableBalanceOnEdit: false,
